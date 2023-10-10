@@ -18,14 +18,15 @@ public class Book extends Item {
 		this.author = author;
 	}	
 
-	public void print() {
-		System.out.println(this);
-	}
 
 	@Override
 	public String toString() {
 		return "Book{" + super.toString() + ", author=" + author + '}';
 	}
 	
+	public void accept(ItemVisitor v) {
+		// 2° Dispatch : en fonction du type statique de this (Item)
+		v.visit(this);
+	}
 	
 }
